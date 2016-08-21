@@ -48,22 +48,25 @@ I applied for GSOC-2016 under the Open Chemistry organization because I had exte
 #### Chemical JSON
 The chemical JSON design was completed with the help of [Karol Langner](https://github.com/langner), [Adam Tenderholt](https://github.com/ATenderholt), [Geoffrey Hutchison](https://github.com/ghutchis) and [Marcus Hanwell](https://github.com/cryos). The design has been shared [here](https://docs.google.com/document/d/1_RYFXzhxHK525id0A930Pa1y38Ui2X5GgtAo68iE5Oc/edit?usp=sharing) on a public Google Doc.
 
-The **56** different attributes that the cclib library can parse have been organized under the right object names (such as properties, atoms, vibrations, optimization etc). These attributes have also been given a more human readable Key name (for e.g: _Anharmonicity constants_ for _vibanharms_ attribute)
+The **56** different attributes that the cclib library can parse have been organized under the right object names (such as properties, atoms, vibrations, optimization etc). These attributes have also been given a more human readable Key name (for e.g: '_Anharmonicity constants_' for '_vibanharms_' attribute)
 
-Using this design spec as a model, the [CJSON writer](https://github.com/cclib/cclib/blob/master/src/cclib/io/cjsonwriter.py) was implemented and merged with the cclib library. Users of cclib can use the following manner to generate a CJSON file from **any** computational chemistry output file which cclib supports.
+Using this design spec as a model, the [CJSON writer](https://github.com/cclib/cclib/blob/master/src/cclib/io/cjsonwriter.py) was implemented and merged with the cclib library. Users of cclib can use the CJSON writer in the following manner to generate a CJSON file from **any** computational chemistry output file which cclib supports.
 
 On command line:
 
-for the indented version: `ccwrite CJSON _output file name_`
+for the indented version: `ccwrite cjson output_file_name`
 
 for the non indented version, a --terse flag is provided:
-`ccwrite CJSON --terse _output file name_`
+`ccwrite cjson --terse output_file_name`
 
-An example input file is provided [here](https://drive.google.com/file/d/0B07sfcCrfAN5SUpleEY4aGdkUkE/view?usp=sharing), and the generated CJSON files are available here: [indented form](https://drive.google.com/open?id=0B07sfcCrfAN5RTRLNXRGTF9mazg), [terse form](https://drive.google.com/open?id=0B07sfcCrfAN5eDJEWWhLMjBMMVE).
+An example input file is provided [here](https://drive.google.com/file/d/0B07sfcCrfAN5SUpleEY4aGdkUkE/view?usp=sharing), and the generated CJSON files are available here:
 
-Similarly a [CJSON reader](https://github.com/cclib/cclib/blob/master/src/cclib/io/cjsonreader.py) was implemented and merged with the parent repository. Using the _cjsonreader_ a user can parse any of the 56 attributes that cclib supports by the following command
+- [Indented form](https://drive.google.com/open?id=0B07sfcCrfAN5RTRLNXRGTF9mazg)
+- [Terse form](https://drive.google.com/open?id=0B07sfcCrfAN5eDJEWWhLMjBMMVE)
 
-`ccget --CJSON _<attribute_name>_ _output file name_`
+Similarly a [CJSON reader](https://github.com/cclib/cclib/blob/master/src/cclib/io/cjsonreader.py) was implemented and merged with the parent repository. Using the _cjsonreader_ a user can parse any of the 56 attributes that cclib supports by the following command:
+
+`ccget --cjson <attribute_name> output_file_name`
 
 #### Avogadro 2
 

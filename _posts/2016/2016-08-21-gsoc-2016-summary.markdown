@@ -4,6 +4,7 @@ title: "GSOC 2016"
 date: "2016-08-21 12:43"
 ---
 ![alt text](https://developers.google.com/open-source/gsoc/resources/downloads/GSoC-icon-192.png "Gsoc2016")
+
 **Integration of cclib with Avogadro 2**
 
 ### A little Introduction
@@ -32,11 +33,45 @@ I applied for GSOC-2016 under the Open Chemistry organization because I had exte
 6. Pull requests:
   - cclib
         - [Implementation of the CJSON writer](https://github.com/cclib/cclib/pull/279) **[MERGED]**
-        - [Movement of a few attributes in the cjson format](https://github.com/cclib/cclib/pull/305) **[MERGED]**
+        - [Movement of a few attributes in the CJSON format](https://github.com/cclib/cclib/pull/305) **[MERGED]**
         - [CJSON Reader - Removal of cjsonHolder DS](https://github.com/cclib/cclib/pull/308) **[MERGED]**
         - [Add anharmonic freq. and constrained scan calc. files to expand test](https://github.com/cclib/cclib/pull/281) **[MERGED]**
         - [Replace NaN's with null to form valid json files](https://github.com/cclib/cclib/pull/318) **[MERGED]**
   - Avogadrolibs
         - [cclib script](https://github.com/OpenChemistry/avogadrolibs/pull/103) _[UNDER REVIEW]_
-        - [Cjson format](https://github.com/OpenChemistry/avogadrolibs/pull/104) _[UNDER REVIEW]_
+        - [CJSON format](https://github.com/OpenChemistry/avogadrolibs/pull/104) _[UNDER REVIEW]_
         - [Visualize properties](https://github.com/OpenChemistry/avogadrolibs/pull/105) _[UNDER REVIEW]_
+
+
+### Work accomplished:
+
+#### Chemical JSON
+The chemical JSON design was completed with the help of [Karol Langner](https://github.com/langner), [Adam Tenderholt](https://github.com/ATenderholt), [Geoffrey Hutchison](https://github.com/ghutchis) and [Marcus Hanwell](https://github.com/cryos). The design has been shared [here](https://docs.google.com/document/d/1_RYFXzhxHK525id0A930Pa1y38Ui2X5GgtAo68iE5Oc/edit?usp=sharing) on a public Google Doc.
+
+The **56** different attributes that the cclib library can parse have been organized under the right object names (such as properties, atoms, vibrations, optimization etc). These attributes have also been given a more human readable Key name (for e.g: _Anharmonicity constants_ for _vibanharms_ attribute)
+
+Using this design spec as a model, the [CJSON writer](https://github.com/cclib/cclib/blob/master/src/cclib/io/cjsonwriter.py) was implemented and merged with the cclib library. Users of cclib can use the following manner to generate a CJSON file from **any** computational chemistry output file which cclib supports.
+
+On command line:
+
+for the indented version: `ccwrite CJSON _output file name_`
+
+for the non indented version, a --terse flag is provided:
+`ccwrite CJSON --terse _output file name_`
+
+An example input file is provided [here](https://drive.google.com/file/d/0B07sfcCrfAN5SUpleEY4aGdkUkE/view?usp=sharing), and the generated CJSON files are available here: [indented form](https://drive.google.com/open?id=0B07sfcCrfAN5RTRLNXRGTF9mazg), [terse form](https://drive.google.com/open?id=0B07sfcCrfAN5eDJEWWhLMjBMMVE).
+
+Similarly a [CJSON reader](https://github.com/cclib/cclib/blob/master/src/cclib/io/cjsonreader.py) was implemented and merged with the parent repository. Using the _cjsonreader_ a user can parse any of the 56 attributes that cclib supports by the following command
+
+`ccget --CJSON _<attribute_name>_ _output file name_`
+
+#### Avogadro 2
+
+The primary task in the integration was to develop a manner in which the computational output file provided by the user would be passed to cclib and the generated CJSON would be read by avogadro internals.
+
+The cclib-avogadro interfacing [script](https://github.com/Schamnad/avogadrolibs/blob/cclibScript/avogadro/qtplugins/scriptfileformats/formatScripts/cclib/cclibScript.py) was written in the form of a formatScript (python). The generated CJSON was passed to a CJSON file format which previously existed. The [CJSON format](https://github.com/Schamnad/avogadrolibs/blob/schamnad_GSOC16/avogadro/io/cjsonformat.cpp) was extensively developed to parse and store the attributes that are available in the [CJSON](https://docs.google.com/document/d/1_RYFXzhxHK525id0A930Pa1y38Ui2X5GgtAo68iE5Oc/edit?usp=sharing). The data parsed from the CJSON file was stored in the internal Data structures of the [Molecule](https://github.com/Schamnad/avogadrolibs/blob/schamnad_GSOC16/avogadro/core/molecule.h) class.
+
+From this stored data, the Molecular Properties dialog box was split into two - General Properties and Energy Properties:
+
+1. ![General Properties](https://raw.githubusercontent.com/Schamnad/schamnad.github.io/master/_includes/GeneralProperties.png)
+2. ![Energy Properties](https://raw.githubusercontent.com/Gasuleg/gasuleg.github.io/master/_includes/EnergyProperties.png)

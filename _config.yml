@@ -1,6 +1,6 @@
 name: Sanjeed Schamnad
 permalink: /blog/:year/:month/:day/:title
-markdown: redcarpet
-redcarpet:
+markdown: kramdown
+kramdown:
   extensions:
     - lax_spacing

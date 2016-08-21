@@ -71,7 +71,31 @@ The primary task in the integration was to develop a manner in which the computa
 
 The cclib-avogadro interfacing [script](https://github.com/Schamnad/avogadrolibs/blob/cclibScript/avogadro/qtplugins/scriptfileformats/formatScripts/cclib/cclibScript.py) was written in the form of a formatScript (python). The generated CJSON was passed to a CJSON file format which previously existed. The [CJSON format](https://github.com/Schamnad/avogadrolibs/blob/schamnad_GSOC16/avogadro/io/cjsonformat.cpp) was extensively developed to parse and store the attributes that are available in the [CJSON](https://docs.google.com/document/d/1_RYFXzhxHK525id0A930Pa1y38Ui2X5GgtAo68iE5Oc/edit?usp=sharing). The data parsed from the CJSON file was stored in the internal Data structures of the [Molecule](https://github.com/Schamnad/avogadrolibs/blob/schamnad_GSOC16/avogadro/core/molecule.h) class.
 
-From this stored data, the Molecular Properties dialog box was split into two - General Properties and Energy Properties:
+From this stored data, the Molecular Properties dialog box was split into two :
 
-1. ![General Properties](https://raw.githubusercontent.com/Schamnad/schamnad.github.io/master/_includes/GeneralProperties.png)
-2. ![Energy Properties](https://raw.githubusercontent.com/Gasuleg/gasuleg.github.io/master/_includes/EnergyProperties.png)
+  General Properties
+
+ ![General Properties](https://raw.githubusercontent.com/Schamnad/schamnad.github.io/master/_includes/GeneralProperties.png)
+
+ Energy Properties
+
+ ![Energy Properties](https://raw.githubusercontent.com/Schamnad/schamnad.github.io/master/_includes/EnergyProperties.png)
+
+### Future Tasks:
+
+1. Integration of the CJSON Data structure within the cjsonwriter
+2. On the cclib end, relevant test cases for the cjson writer and reader are pending
+3. Migration of the Orbitals Widget from Avogadro-1 to Avogadro-2
+4. Integration of cclib in the Open Chemistry super-build
+
+### Personal Takeaway:
+
+It's been a very hectic 5 months to say the least, I had a sync up session with both Karol and Adam on a daily basis. We used to meet at 9.15 p.m IST (8.45 a.m PST) where we would discuss what I did during the day and if I was stuck in any way.
+
+I learnt new things about Python and C++ on a daily basis. The design aspect of the project was quite challenging and a lot of fun, hearing everyones opinion and understanding their thinking behind them helped me grow a lot.
+
+On a formal note:
+I would like to thank the following:
+- The [Google Summer of Code](https://summerofcode.withgoogle.com) organisation, for this wonderful experience.
+- [Open Chemistry](openchemistry.org), for accepting my project proposal and letting me embark on this fantastic adventure.
+- My official mentors, Mr.Karol Langner, Mr. Adam Tenderholt, and my unofficial mentors, Marcus Hanwell and Dr. Geoffrey Hutchison, for being there to help me.

@@ -96,6 +96,7 @@ I learnt new things about Python and C++ on a daily basis. The design aspect of 
 
 On a formal note:
 I would like to thank the following:
+
 - The [Google Summer of Code](https://summerofcode.withgoogle.com) organisation, for this wonderful experience.
 - [Open Chemistry](openchemistry.org), for accepting my project proposal and letting me embark on this fantastic adventure.
 - My official mentors, Mr.Karol Langner, Mr. Adam Tenderholt, and my unofficial mentors, Marcus Hanwell and Dr. Geoffrey Hutchison, for being there to help me.

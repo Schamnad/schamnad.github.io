@@ -1,0 +1,42 @@
+---
+layout: "post"
+title: "GSOC 2016"
+date: "2016-08-21 12:43"
+---
+![alt text](https://developers.google.com/open-source/gsoc/resources/downloads/GSoC-icon-192.png "Gsoc2016")
+**Integration of cclib with Avogadro 2**
+
+### A little Introduction
+I applied for Google Summer of code in the final semester of my undergraduate studies. During my undergraduate studies I concentrated on the field of Computational Chemistry, where I used Avogadro quite a bit. Avogadro is an advanced molecular editor, used for various research purposes.
+
+I applied for GSOC-2016 under the Open Chemistry organization because I had extensively utilized the applications provided by them and I wanted to give back to the community. The entire summer has been a very fruitful period where I have interacted with my mentors on a daily basis. I have also indicated to them that I wish to continue contributing to the organization
+
+### Relevant Links:
+
+1. Organization :
+ [Open Chemistry](http://www.openchemistry.org/)
+2. Project Title : Avogadro-2: Integration of cclib data parser using Chemical JSON ([Abstract](https://summerofcode.withgoogle.com/projects/#6520053793030144))
+3. Mentors:
+    - Karol Langner ([github](https://github.com/langner), [LinkedIn](https://www.linkedin.com/in/karollangner))
+    - Adam Tenderholt ([github](https://github.com/ATenderholt), [LinkedIn](https://www.linkedin.com/in/tenderholt))
+
+4. Repositories contributed to:
+    - [cclib](https://github.com/cclib/cclib/)
+    - [OpenChemistry : Avogadrolibs](https://github.com/OpenChemistry/avogadrolibs)
+
+5. Commits authored:
+    - [cclib - master](https://github.com/cclib/cclib/commits/master?author=Schamnad)
+    - [avogadrolibs - fork](https://github.com/Schamnad/avogadrolibs/commits/schamnad_GSOC16?author=schamnad)
+
+
+6. Pull requests:
+  - cclib
+        - [Implementation of the CJSON writer](https://github.com/cclib/cclib/pull/279) **[MERGED]**
+        - [Movement of a few attributes in the cjson format](https://github.com/cclib/cclib/pull/305) **[MERGED]**
+        - [CJSON Reader - Removal of cjsonHolder DS](https://github.com/cclib/cclib/pull/308) **[MERGED]**
+        - [Add anharmonic freq. and constrained scan calc. files to expand test](https://github.com/cclib/cclib/pull/281) **[MERGED]**
+        - [Replace NaN's with null to form valid json files](https://github.com/cclib/cclib/pull/318) **[MERGED]**
+  - Avogadrolibs
+        - [cclib script](https://github.com/OpenChemistry/avogadrolibs/pull/103) _[UNDER REVIEW]_
+        - [Cjson format](https://github.com/OpenChemistry/avogadrolibs/pull/104) _[UNDER REVIEW]_
+        - [Visualize properties](https://github.com/OpenChemistry/avogadrolibs/pull/105) _[UNDER REVIEW]_

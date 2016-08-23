@@ -45,7 +45,7 @@ This project proposed to integrate the cclib data parsing library with Avogadro-
         - [Add anharmonic freq. and constrained scan calc. files to expand test](https://github.com/cclib/cclib/pull/281) **[MERGED]**
         - [Replace NaN's with null to form valid json files](https://github.com/cclib/cclib/pull/318) **[MERGED]**
   - Avogadrolibs
-        - [cclib script](https://github.com/OpenChemistry/avogadrolibs/pull/103) _[UNDER REVIEW]_
+        - [cclib script](https://github.com/OpenChemistry/avogadrolibs/pull/106) _[UNDER REVIEW]_
         - [CJSON format](https://github.com/OpenChemistry/avogadrolibs/pull/104) _[UNDER REVIEW]_
         - [Visualize properties](https://github.com/OpenChemistry/avogadrolibs/pull/105) _[UNDER REVIEW]_
 
